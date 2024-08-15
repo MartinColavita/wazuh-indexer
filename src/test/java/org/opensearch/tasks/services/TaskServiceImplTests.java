@@ -1,22 +1,19 @@
 package org.opensearch.tasks.services;
 
-
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.opensearch.tasks.model.Task;
 import org.opensearch.tasks.repository.TaskRepository;
 import java.io.IOException;
 import java.util.List;
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
-import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
-
 
 public class TaskServiceImplTests {
     private TaskRepository taskRepository;
     private TaskService taskService;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         taskRepository = mock(TaskRepository.class);
         taskService = new TaskServiceImpl(taskRepository);

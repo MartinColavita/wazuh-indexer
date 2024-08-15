@@ -1,15 +1,14 @@
 package org.opensearch.tasks.controller;
 
-
-import org.junit.Before;
-import org.junit.Test;
-import org.mockito.Mockito;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.opensearch.client.node.NodeClient;
+import org.opensearch.core.rest.RestStatus;
 import org.opensearch.rest.RestChannel;
 import org.opensearch.rest.RestRequest;
 import org.opensearch.tasks.services.TaskService;
 import org.opensearch.tasks.model.Task;
-
+import org.opensearch.rest.BytesRestResponse;
 import java.io.IOException;
 import java.util.List;
 
@@ -24,7 +23,7 @@ public class TasksRestHandlerTests {
     private RestChannel channel;
     private NodeClient client;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         taskService = mock(TaskService.class);
         tasksRestHandler = new TasksRestHandler(taskService);
@@ -41,7 +40,7 @@ public class TasksRestHandlerTests {
         try {
             tasksRestHandler.handleRequest(request, channel, client);
         } catch (Exception e) {
-            e.printStackTrace();
+            channel.sendResponse(new BytesRestResponse(RestStatus.INTERNAL_SERVER_ERROR, "Error handling GET request"));
         }
         verify(channel, times(1)).sendResponse(any());
     }
@@ -55,7 +54,7 @@ public class TasksRestHandlerTests {
         try {
             tasksRestHandler.handleRequest(request, channel, client);
         } catch (Exception e) {
-            e.printStackTrace();
+            channel.sendResponse(new BytesRestResponse(RestStatus.INTERNAL_SERVER_ERROR, "Error handling POST request"));
         }
         verify(channel, times(1)).sendResponse(any());
     }
@@ -70,7 +69,7 @@ public class TasksRestHandlerTests {
         try {
             tasksRestHandler.handleRequest(request, channel, client);
         } catch (Exception e) {
-            e.printStackTrace();
+            channel.sendResponse(new BytesRestResponse(RestStatus.INTERNAL_SERVER_ERROR, "Error handling PUT request"));
         }
         verify(channel, times(1)).sendResponse(any());
     }
@@ -84,9 +83,8 @@ public class TasksRestHandlerTests {
         try {
             tasksRestHandler.handleRequest(request, channel, client);
         } catch (Exception e) {
-            e.printStackTrace();
+            channel.sendResponse(new BytesRestResponse(RestStatus.INTERNAL_SERVER_ERROR, "Error handling DELETE request"));
         }
         verify(channel, times(1)).sendResponse(any());
     }
-
 }

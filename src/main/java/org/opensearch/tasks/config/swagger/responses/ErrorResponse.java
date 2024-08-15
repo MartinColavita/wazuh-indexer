@@ -8,6 +8,9 @@ import lombok.NoArgsConstructor;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
+/**
+ * Represents an error response.
+ */
 @NoArgsConstructor
 @AllArgsConstructor
 @Data

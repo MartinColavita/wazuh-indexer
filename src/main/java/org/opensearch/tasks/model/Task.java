@@ -1,18 +1,14 @@
 package org.opensearch.tasks.model;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDate;
 
 
 /**
- * La clase Task representa una tarea en el sistema.
- * Cada tarea tiene un identificador único, un título, un estado, una fecha de creación, una fecha de finalización y un asignado.
+ * Represents a task in the system.
  */
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class Task {
@@ -22,4 +18,52 @@ public class Task {
     private LocalDate creationDate;
     private LocalDate completionDate;
     private String assignee;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public LocalDate getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(LocalDate creationDate) {
+        this.creationDate = creationDate;
+    }
+
+    public LocalDate getCompletionDate() {
+        return completionDate;
+    }
+
+    public void setCompletionDate(LocalDate completionDate) {
+        this.completionDate = completionDate;
+    }
+
+    public String getAssignee() {
+        return assignee;
+    }
+
+    public void setAssignee(String assignee) {
+        this.assignee = assignee;
+    }
 }

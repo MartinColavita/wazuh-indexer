@@ -1,8 +1,7 @@
 package org.opensearch.tasks.repository;
 
-
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.opensearch.action.get.GetResponse;
 import org.opensearch.action.search.SearchResponse;
@@ -13,14 +12,14 @@ import org.opensearch.tasks.utils.JsonUtil;
 import java.io.IOException;
 import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 public class TaskRepositoryImplTests {
     private RestHighLevelClient client;
     private TaskRepository taskRepository;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         client = mock(RestHighLevelClient.class);
         taskRepository = new TaskRepositoryImpl(client);

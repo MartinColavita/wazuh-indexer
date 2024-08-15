@@ -7,7 +7,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 
-
+/**
+ * Represents multiple error responses.
+ */
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
