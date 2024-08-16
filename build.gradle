@@ -163,5 +163,21 @@ task updateVersion {
         enabled = false
     }
 
+    sourceSets {
+        test {
+            java {
+                srcDirs = ['src/test/java']
+            }
+        }
+    }
+
+    test {
+        testLogging {
+            events "passed", "skipped", "failed"
+            exceptionFormat "full"
+            showStandardStreams = true
+        }
+    }
+
 
 }
